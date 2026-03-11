@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Task Manager</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Assignment Manager</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="tasks.html">Tasks</a>
+<a href="about.html">About</a>
+</nav>
+</header>
+
+<section class="container">
+
+<h2>Add Assignment</h2>
+
+<input type="text" id="taskInput" placeholder="Assignment title">
+<input type="date" id="dateInput">
+
+<button onclick="addTask()">Add Task</button>
+
+<h2>Your Tasks</h2>
+
+<input type="text" id="searchInput" placeholder="Search task..." onkeyup="searchTask()">
+
+<ul id="taskList"></ul>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
