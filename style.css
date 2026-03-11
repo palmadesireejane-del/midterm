@@ -29,7 +29,7 @@ nav a:hover{
 text-decoration:underline;
 }
 
-/* Home Hero Section */
+/* Hero Section (Home) */
 .hero{
 padding:60px 20px;
 background:white;
@@ -64,6 +64,44 @@ font-weight:bold;
 
 .btn:hover{
 background:#ff1493;
+}
+
+/* Features Section */
+.features{
+padding:40px 20px;
+}
+
+.features h3{
+font-size:26px;
+color:#ff1493;
+margin-bottom:20px;
+}
+
+/* Feature Cards */
+.feature-cards{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:20px;
+width:220px;
+border-radius:12px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+border:2px solid #ff69b4;
+transition:transform 0.2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h4{
+color:#ff1493;
+margin-bottom:10px;
 }
 
 /* Container (Tasks & About) */
@@ -157,7 +195,7 @@ margin-top:40px;
 font-size:14px;
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width:600px){
 
 .container{
@@ -166,6 +204,11 @@ width:90%;
 
 .hero{
 width:90%;
+}
+
+.feature-cards{
+flex-direction:column;
+align-items:center;
 }
 
 }
