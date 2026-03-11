@@ -1,47 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tasks - Student Reminder App</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-<header>
-  <div class="header-container">
-    <h1>Student Reminder App</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="tasks.html">Tasks</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-</header>
+function updateTaskList() {
+  const taskList = document.getElementById("taskList");
+  if (!taskList) return;
+  taskList.innerHTML = "";
+  let completed = 0;
 
-<section class="container">
-  <h2>My Tasks</h2>
-  
-  <div class="task-inputs">
-    <input type="text" id="taskName" placeholder="Task Name">
-    <input type="date" id="taskDeadline">
-    <button onclick="addTask()" class="btn">Add Task</button>
-  </div>
+  tasks.forEach((task, index) => {
+    const card = document.createElement("div");
+    card.className = "task-card";
+    if (task.completed) card.classList.add("completed");
 
-  <h3>Progress</h3>
-  <div class="progress">
-    <div id="progressBar"></div>
-  </div>
+    card.innerHTML = `
+      <div>
+        <p class="task-name">${task.name}</p>
+        <p class="task-deadline">Due: ${task.deadline}</p>
+      </div>
+      <div>
+        <button onclick="toggleComplete(${index})">✔️</button>
+        <button class="delete-btn" onclick="deleteTask(${index})">🗑️</button>
+      </div>
+    `;
+    taskList.appendChild(card);
 
-  <h3>Task List</h3>
-  <div id="taskList"></div>
-</section>
+    if (task.completed) completed++;
+  });
 
-<footer>
-  <p>© 2026 Student Reminder App</p>
-  <p>Developed by: Desiree Jane Palma</p>
-</footer>
+  const progressBar = document.getElementById("progressBar");
+  const percent = tasks.length ? (completed / tasks.length) * 100 : 0;
+  if (progressBar) progressBar.style.width = percent + "%";
 
-<script src="script.js"></script>
-</body>
-</html>
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function addTask() {
+  const nameInput = document.getElementById("taskName");
+  const deadlineInput = document.getElementById("taskDeadline");
+  const name = nameInput.value.trim();
+  const deadline = deadlineInput.value;
+
+  if (!name || !deadline) {
+    alert("Please enter task name and deadline");
+    return;
+  }
+
+  tasks.push({ name, deadline, completed: false });
+  nameInput.value = "";
+  deadlineInput.value = "";
+  updateTaskList();
+}
+
+function toggleComplete(index) {
+  tasks[index].completed = !tasks[index].completed;
+  updateTaskList();
+}
+
+function deleteTask(index) {
+  tasks.splice(index, 1);
+  updateTaskList();
+}
+
+updateTaskList();
