@@ -1,48 +1,80 @@
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-function displayTasks(){
+function updateTaskList(){
 
-let list = document.getElementById("taskList");
+const taskList=document.getElementById("taskList");
 
-if(!list) return;
+if(!taskList) return;
 
-list.innerHTML="";
+taskList.innerHTML="";
+
+let completed=0;
 
 tasks.forEach((task,index)=>{
 
-let li=document.createElement("li");
+const card=document.createElement("div");
 
-li.innerHTML=
-task.name+" ("+task.date+") "+
-`<button onclick="deleteTask(${index})">Delete</button>`;
+card.className="task-card";
 
-list.appendChild(li);
+if(task.completed) card.classList.add("completed");
+
+card.innerHTML=`
+<div>
+<p>${task.name}</p>
+<p>Due: ${task.deadline}</p>
+</div>
+
+<div>
+<button onclick="toggleComplete(${index})">✔</button>
+<button onclick="deleteTask(${index})">🗑</button>
+</div>
+`;
+
+taskList.appendChild(card);
+
+if(task.completed) completed++;
 
 });
+
+const progressBar=document.getElementById("progressBar");
+
+const percent=tasks.length?(completed/tasks.length)*100:0;
+
+if(progressBar) progressBar.style.width=percent+"%";
+
+localStorage.setItem("tasks",JSON.stringify(tasks));
 
 }
 
 function addTask(){
 
-let taskInput=document.getElementById("taskInput");
-let dateInput=document.getElementById("dateInput");
+const name=document.getElementById("taskName").value;
 
-if(taskInput.value=="" || dateInput.value==""){
-alert("Please fill all fields");
+const deadline=document.getElementById("taskDeadline").value;
+
+if(!name || !deadline){
+alert("Enter task and deadline");
 return;
 }
 
 tasks.push({
-name:taskInput.value,
-date:dateInput.value
+name:name,
+deadline:deadline,
+completed:false
 });
 
-localStorage.setItem("tasks",JSON.stringify(tasks));
+document.getElementById("taskName").value="";
+document.getElementById("taskDeadline").value="";
 
-taskInput.value="";
-dateInput.value="";
+updateTaskList();
 
-displayTasks();
+}
+
+function toggleComplete(index){
+
+tasks[index].completed=!tasks[index].completed;
+
+updateTaskList();
 
 }
 
@@ -50,28 +82,8 @@ function deleteTask(index){
 
 tasks.splice(index,1);
 
-localStorage.setItem("tasks",JSON.stringify(tasks));
-
-displayTasks();
+updateTaskList();
 
 }
 
-function searchTask(){
-
-let input=document.getElementById("searchInput").value.toLowerCase();
-
-let items=document.querySelectorAll("#taskList li");
-
-items.forEach(item=>{
-
-if(item.textContent.toLowerCase().includes(input)){
-item.style.display="flex";
-}else{
-item.style.display="none";
-}
-
-});
-
-}
-
-displayTasks();
+updateTaskList();
