@@ -9,34 +9,37 @@
 <body>
 
 <header>
-  <h1>My Tasks</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="tasks.html">Tasks</a>
-    <a href="about.html">About</a>
-  </nav>
+  <div class="header-container">
+    <h1>Student Reminder App</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
 </header>
 
 <section class="container">
+  <h2>My Tasks</h2>
+  
+  <div class="task-inputs">
+    <input type="text" id="taskName" placeholder="Task Name">
+    <input type="date" id="taskDeadline">
+    <button onclick="addTask()" class="btn">Add Task</button>
+  </div>
 
-<h2>Add New Task</h2>
+  <h3>Progress</h3>
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
 
-<input type="text" id="taskName" placeholder="Task Name">
-<input type="date" id="taskDeadline">
-<button onclick="addTask()">Add Task</button>
-
-<h3>Task Progress</h3>
-<div class="progress">
-  <div id="progressBar"></div>
-</div>
-
-<h3>My Task List</h3>
-<div id="taskList"></div>
-
+  <h3>Task List</h3>
+  <div id="taskList"></div>
 </section>
 
 <footer>
   <p>© 2026 Student Reminder App</p>
+  <p>Developed by: Desiree Jane Palma</p>
 </footer>
 
 <script src="script.js"></script>
