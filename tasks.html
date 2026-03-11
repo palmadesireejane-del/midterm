@@ -3,48 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tasks</title>
+<title>Tasks - Student Reminder App</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<div class="header-container">
-<h1>Student Reminder App</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="tasks.html">Tasks</a>
-<a href="about.html">About</a>
-</nav>
-</div>
+  <div class="header-container">
+    <div class="logo-title">
+      <img src="assets/images/DESIREE.png" alt="App Logo" class="app-logo">
+      <h1>Student Reminder App</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
 </header>
 
 <section class="container">
+  <h2>Task Manager</h2>
 
-<h2>Task Manager</h2>
+  <input id="searchInput" placeholder="Search task..." onkeyup="searchTask()">
+  <input id="taskName" placeholder="Task Name">
+  <input id="taskDeadline" type="date">
 
-<input id="searchInput" placeholder="Search task..." onkeyup="searchTask()">
+  <button onclick="addTask()" class="btn">Add Task</button>
 
-<input id="taskName" placeholder="Task Name">
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
 
-<input id="taskDeadline" type="date">
-
-<button onclick="addTask()" class="btn">Add Task</button>
-
-<div class="progress">
-<div id="progressBar"></div>
-</div>
-
-<div id="taskList"></div>
-
+  <div id="taskList"></div>
 </section>
 
 <footer>
-<p>© 2026 Student Reminder App</p>
+  <p>© 2026 Student Reminder App</p>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
