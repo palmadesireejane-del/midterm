@@ -1,65 +1,47 @@
-<script>
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
-function updateTaskList() {
-  const taskList = document.getElementById("taskList");
-  if (!taskList) return;
-  taskList.innerHTML = "";
-  let completed = 0;
+<body>
 
-  tasks.forEach((task, index) => {
-    const card = document.createElement("div");
-    card.className = "task-card";
-    if (task.completed) card.classList.add("completed");
+<header>
+<div class="header-container">
+<h1>Student Reminder App</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="tasks.html">Tasks</a>
+<a href="about.html">About</a>
+</nav>
+</div>
+</header>
 
-    card.innerHTML = `
-      <div>
-        <p class="task-name">${task.name}</p>
-        <p class="task-deadline">Due: ${task.deadline}</p>
-      </div>
-      <div>
-        <button onclick="toggleComplete(${index})">✔️</button>
-        <button class="delete-btn" onclick="deleteTask(${index})">🗑️</button>
-      </div>
-    `;
-    taskList.appendChild(card);
+<section class="container">
 
-    if (task.completed) completed++;
-  });
+<h2>Task Manager</h2>
 
-  const progressBar = document.getElementById("progressBar");
-  const percent = tasks.length ? (completed / tasks.length) * 100 : 0;
-  if (progressBar) progressBar.style.width = percent + "%";
+<input id="taskName" placeholder="Task Name">
+<input id="taskDeadline" type="date">
 
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}
+<button onclick="addTask()" class="btn">Add Task</button>
 
-function addTask() {
-  const nameInput = document.getElementById("taskName");
-  const deadlineInput = document.getElementById("taskDeadline");
-  const name = nameInput.value.trim();
-  const deadline = deadlineInput.value;
+<div class="progress">
+<div id="progressBar"></div>
+</div>
 
-  if (!name || !deadline) {
-    alert("Please enter task name and deadline");
-    return;
-  }
+<div id="taskList"></div>
 
-  tasks.push({ name, deadline, completed: false });
-  nameInput.value = "";
-  deadlineInput.value = "";
-  updateTaskList();
-}
+</section>
 
-function toggleComplete(index) {
-  tasks[index].completed = !tasks[index].completed;
-  updateTaskList();
-}
+<footer>
+<p>© 2026 Student Reminder App</p>
+</footer>
 
-function deleteTask(index) {
-  tasks.splice(index, 1);
-  updateTaskList();
-}
+<script src="script.js"></script>
 
-updateTaskList();
-</script>
+</body>
+</html>
