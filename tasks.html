@@ -2,39 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Task Manager</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tasks - Student Reminder App</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-<h1>Assignment Manager</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="tasks.html">Tasks</a>
-<a href="about.html">About</a>
-</nav>
+  <h1>My Tasks</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tasks.html">Tasks</a>
+    <a href="about.html">About</a>
+  </nav>
 </header>
 
 <section class="container">
 
-<h2>Add Assignment</h2>
+<h2>Add New Task</h2>
 
-<input type="text" id="taskInput" placeholder="Assignment title">
-<input type="date" id="dateInput">
-
+<input type="text" id="taskName" placeholder="Task Name">
+<input type="date" id="taskDeadline">
 <button onclick="addTask()">Add Task</button>
 
-<h2>Your Tasks</h2>
+<h3>Task Progress</h3>
+<div class="progress">
+  <div id="progressBar"></div>
+</div>
 
-<input type="text" id="searchInput" placeholder="Search task..." onkeyup="searchTask()">
-
-<ul id="taskList"></ul>
+<h3>My Task List</h3>
+<div id="taskList"></div>
 
 </section>
 
-<script src="script.js"></script>
+<footer>
+  <p>© 2026 Student Reminder App</p>
+</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
