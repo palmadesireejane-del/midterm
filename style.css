@@ -1,99 +1,107 @@
 body{
-font-family: Arial;
-margin:0;
-background:#fff0f6; /* light pink background */
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#fff0f6; /* soft pink background */
+  text-align:center;
 }
 
 header{
-background:#ff69b4; /* pink header */
-color:white;
-padding:15px;
-text-align:center;
+  background:#ff69b4; /* bright pink header */
+  color:white;
+  padding:15px;
 }
 
 nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-font-weight:bold;
+  color:white;
+  margin:10px;
+  text-decoration:none;
+  font-weight:bold;
 }
 
 .hero{
-text-align:center;
-padding:60px;
+  padding:60px;
 }
 
 .btn{
-background:#ff69b4; /* pink button */
-color:white;
-padding:12px 20px;
-text-decoration:none;
-border-radius:5px;
-}
-
-.features{
-display:flex;
-justify-content:center;
-gap:20px;
-padding:40px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 2px 5px rgba(0,0,0,0.15);
+  background:#ff69b4; /* pink button */
+  color:white;
+  padding:12px 20px;
+  text-decoration:none;
+  border-radius:5px;
+  font-weight:bold;
 }
 
 .container{
-padding:40px;
-text-align:center;
+  background:white; /* white container */
+  padding:30px;
+  margin:40px auto;
+  width:350px;
+  border-radius:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.2);
 }
 
-input{
-padding:10px;
-margin:10px;
-border:1px solid #ffb6c1;
-border-radius:5px;
+input[type="text"], input[type="date"]{
+  padding:10px;
+  margin:5px;
+  width:80%;
+  border:1px solid #ffb6c1; /* light pink border */
+  border-radius:5px;
 }
 
 button{
-padding:10px 15px;
-background:#ff69b4; /* pink button */
-color:white;
-border:none;
-cursor:pointer;
-border-radius:5px;
+  padding:10px 15px;
+  margin:10px 5px;
+  background:#ff69b4;
+  color:white;
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
+  font-weight:bold;
 }
 
-button:hover{
-background:#ff1493; /* darker pink on hover */
+.progress{
+  width:100%;
+  background:#ffd6e8; /* light pink progress background */
+  height:20px;
+  border-radius:10px;
+  margin:10px 0;
 }
 
-ul{
-list-style:none;
-padding:0;
+#progressBar{
+  height:100%;
+  width:0%;
+  background:#ff1493; /* deep pink progress bar */
+  border-radius:10px;
 }
+
+.task-card{
+  background:#ffe4ec; /* soft pink cards */
+  padding:10px;
+  margin:10px 0;
+  border-radius:5px;
+  text-align:left;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.task-card.completed{
+  text-decoration: line-through;
+  color:#ff1493; /* deep pink for completed tasks */
+}
+
+.task-card button{
+  background:#ff69b4;
+  margin-left:5px;
+}
+
+.task-card button.delete-btn{
+  background:#ff1493;
+}
+
 footer{
-background:#ff69b4;
-color:white;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-margin-top:40px;
+  background:#ff69b4;
+  color:white;
+  padding:10px;
+  margin-top:40px;
 }
-
-li{
-background:white;
-margin:10px auto;
-padding:10px;
-width:300px;
-display:flex;
-justify-content:space-between;
-border-radius:5px;
-box-shadow:0 2px 4px rgba(0,0,0,0.1);
-}
-
