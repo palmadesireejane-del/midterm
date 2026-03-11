@@ -1,3 +1,4 @@
+/* Global Styles */
 body{
 font-family:Arial;
 margin:0;
@@ -5,10 +6,16 @@ background:#fff0f6;
 text-align:center;
 }
 
+/* Header */
 header{
 background:#ff69b4;
 color:white;
 padding:15px;
+}
+
+.header-container{
+max-width:900px;
+margin:auto;
 }
 
 nav a{
@@ -18,11 +25,33 @@ text-decoration:none;
 font-weight:bold;
 }
 
-.hero{
-padding:80px;
-background:#ffe4ec;
+nav a:hover{
+text-decoration:underline;
 }
 
+/* Home Hero Section */
+.hero{
+padding:60px 20px;
+background:white;
+margin:40px auto;
+max-width:700px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+border:3px solid #ff69b4;
+}
+
+.hero h2{
+color:#ff1493;
+font-size:32px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:25px;
+}
+
+/* Buttons */
 .btn{
 background:#ff69b4;
 color:white;
@@ -30,25 +59,35 @@ padding:10px 20px;
 border:none;
 border-radius:8px;
 cursor:pointer;
+font-weight:bold;
 }
 
+.btn:hover{
+background:#ff1493;
+}
+
+/* Container (Tasks & About) */
 .container{
 background:white;
 padding:30px;
 margin:40px auto;
 width:400px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+border:3px solid #ff69b4;
 }
 
+/* Inputs */
 input{
 width:90%;
 padding:10px;
 margin:8px 0;
 border:1px solid pink;
 border-radius:6px;
+outline:none;
 }
 
+/* Progress Bar */
 .progress{
 width:100%;
 background:#ffd6e8;
@@ -62,17 +101,23 @@ height:100%;
 width:0%;
 background:#ff1493;
 border-radius:10px;
-transition:width 0.5s;
+transition:width 0.5s ease;
 }
 
+/* Task Cards */
 .task-card{
 background:#ffe4ec;
-padding:10px;
+padding:12px;
 margin:10px 0;
-border-radius:8px;
+border-radius:10px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+transition:transform 0.2s;
+}
+
+.task-card:hover{
+transform:translateY(-2px);
 }
 
 .completed{
@@ -80,23 +125,47 @@ text-decoration:line-through;
 opacity:0.6;
 }
 
+/* Task Buttons */
 .task-card button{
 margin-left:5px;
 background:#ff69b4;
 color:white;
 border:none;
-padding:5px 8px;
-border-radius:5px;
+padding:6px 10px;
+border-radius:6px;
 cursor:pointer;
+}
+
+.task-card button:hover{
+background:#ff1493;
 }
 
 .delete-btn{
 background:red;
 }
 
+.delete-btn:hover{
+background:#c40000;
+}
+
+/* Footer */
 footer{
 background:#ff69b4;
 color:white;
-padding:10px;
+padding:12px;
 margin-top:40px;
+font-size:14px;
+}
+
+/* Responsive */
+@media (max-width:600px){
+
+.container{
+width:90%;
+}
+
+.hero{
+width:90%;
+}
+
 }
