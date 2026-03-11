@@ -1,11 +1,11 @@
 body{
 font-family: Arial;
 margin:0;
-background:#f4f6fb;
+background:#fff0f6; /* light pink background */
 }
 
 header{
-background:#2c3e50;
+background:#ff69b4; /* pink header */
 color:white;
 padding:15px;
 text-align:center;
@@ -15,6 +15,7 @@ nav a{
 color:white;
 margin:10px;
 text-decoration:none;
+font-weight:bold;
 }
 
 .hero{
@@ -23,7 +24,7 @@ padding:60px;
 }
 
 .btn{
-background:#3498db;
+background:#ff69b4; /* pink button */
 color:white;
 padding:12px 20px;
 text-decoration:none;
@@ -41,7 +42,7 @@ padding:40px;
 background:white;
 padding:20px;
 border-radius:10px;
-box-shadow:0 2px 5px rgba(0,0,0,0.2);
+box-shadow:0 2px 5px rgba(0,0,0,0.15);
 }
 
 .container{
@@ -52,14 +53,21 @@ text-align:center;
 input{
 padding:10px;
 margin:10px;
+border:1px solid #ffb6c1;
+border-radius:5px;
 }
 
 button{
 padding:10px 15px;
-background:#3498db;
+background:#ff69b4; /* pink button */
 color:white;
 border:none;
 cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#ff1493; /* darker pink on hover */
 }
 
 ul{
@@ -75,4 +83,5 @@ width:300px;
 display:flex;
 justify-content:space-between;
 border-radius:5px;
+box-shadow:0 2px 4px rgba(0,0,0,0.1);
 }
